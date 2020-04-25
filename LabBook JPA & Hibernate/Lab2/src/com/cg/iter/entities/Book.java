@@ -27,7 +27,6 @@ public class Book {
 	
 	public Book() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	public Book(long bookIsbn, String title, double price, List<Author> authorList) {

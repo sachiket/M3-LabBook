@@ -2,7 +2,8 @@ package com.cg.iter.dao;
 
 import java.util.List;
 
-import com.cg.entities.Book;
+import com.cg.iter.entities.Book;
+
 
 public interface AuthorBookDAO {
 	

@@ -2,7 +2,9 @@ package com.cg.iter.service;
 
 import java.util.List;
 
-import com.cg.entities.Book;
+import com.cg.iter.entities.Book;
+
+
 
 public interface AuthorBookService {
 

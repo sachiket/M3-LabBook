@@ -4,7 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import com.cg.bean.Author;
+import com.cg.iter.bean.Author;
 
 public class AuthorDAOImpl implements AuthorDAO{
 

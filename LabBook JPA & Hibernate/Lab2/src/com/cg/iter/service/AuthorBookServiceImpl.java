@@ -2,27 +2,25 @@ package com.cg.iter.service;
 
 import java.util.List;
 
-import com.cg.dao.AuthorBookDAOImpl;
-import com.cg.entities.Book;
+import com.cg.iter.dao.AuthorBookDAO;
+import com.cg.iter.dao.AuthorBookDAOImpl;
+import com.cg.iter.entities.Book;
 
 public class AuthorBookServiceImpl implements AuthorBookService {
 
-	AuthorBookDAOImpl dao= new AuthorBookDAOImpl();
+	AuthorBookDAO dao= new AuthorBookDAOImpl();
 	@Override
 	public List<Book> getAllBooks() {
-		// TODO Auto-generated method stub
 		return dao.getAllBooks();
 	}
 
 	@Override
 	public List<Book> getBooksByAuthor(String author_name) {
-		// TODO Auto-generated method stub
 		return dao.getBooksByAuthor(author_name);
 	}
 
 	@Override
 	public List<Book> getBooksByPriceRange(double min, double max) {
-		// TODO Auto-generated method stub
 		if(min>=0&&max>0&&min<max)
 			return dao.getBooksByPriceRange(min, max);
 		else
@@ -31,7 +29,6 @@ public class AuthorBookServiceImpl implements AuthorBookService {
 
 	@Override
 	public List<String> getAuthorName(long b_id) {
-		// TODO Auto-generated method stub
 		if(b_id>0)
 			return dao.getAuthorName(b_id);
 		else

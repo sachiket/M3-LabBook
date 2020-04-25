@@ -1,6 +1,6 @@
 package com.cg.iter.dao;
 
-import com.cg.bean.Author;
+import com.cg.iter.bean.Author;
 
 public interface AuthorDAO {
 	public boolean addAuthor(Author author);

@@ -28,7 +28,6 @@ public class Author {
 
 	public Author() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Author(long authorId, String authorName, List<Book> bookList) {

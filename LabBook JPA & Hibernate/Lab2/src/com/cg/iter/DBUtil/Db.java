@@ -16,6 +16,7 @@ public class Db {
 	public EntityManager getManager() {
 		if(manager==null || !manager.isOpen())
 			manager=factory.createEntityManager();
+	
 		return manager;
 	}
 }

@@ -10,9 +10,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Author")
-
-//Making a Table with name Author
-
 public class Author {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
