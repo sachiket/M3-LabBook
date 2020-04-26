@@ -9,19 +9,24 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.persistence.TableGenerator;
+import javax.persistence.JoinColumn;
 
 @Entity
 @Table(name="Book1")
 public class Book {
-
+	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	
 	private long bookIsbn;
 	private String title;
 	private double price;
 	@ManyToMany(targetEntity=Author.class)
+	@JoinTable(name = "author_book", joinColumns = @JoinColumn(name="book_id"), inverseJoinColumns = @JoinColumn(name = "author_id"))
 	private List<Author> authorList = new ArrayList<>();
 	
 	
@@ -29,6 +34,13 @@ public class Book {
 		super();
 	}
 	
+	public Book(long bookIsbn, String title, double price) {
+		super();
+		this.bookIsbn = bookIsbn;
+		this.title = title;
+		this.price = price;
+	}
+
 	public Book(long bookIsbn, String title, double price, List<Author> authorList) {
 		super();
 		this.bookIsbn = bookIsbn;

@@ -19,19 +19,30 @@ import javax.persistence.TableGenerator;
 public class Author {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long authorId;
 	private String authorName;
-	@ManyToMany(targetEntity=Book.class)
+	@ManyToMany(targetEntity=Book.class , mappedBy = "authorList")
 	private List<Book> bookList = new ArrayList<>();
 
 
 
 	public Author() {
+	}
+
+	public Author(String authorName) {
 		super();
+		this.authorName = authorName;
+	}
+
+	public Author(long authorId, String authorName) {
+		this.authorId = authorId;
+		this.authorName = authorName;
+
 	}
 
 	public Author(long authorId, String authorName, List<Book> bookList) {
-		super();
+
 		this.authorId = authorId;
 		this.authorName = authorName;
 		this.bookList = bookList;

@@ -20,6 +20,8 @@ public class Main {
 		String choice;
 		String authorName;
 		double min,max;
+		
+		
 		while(true) {
 		
 			System.out.println("Enter your choice");
