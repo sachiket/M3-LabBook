@@ -57,7 +57,7 @@ public class Application {
 							temp.setLastName(br.readLine());
 							System.out.println("Enter phone number");
 							temp.setPhoneNo(br.readLine());
-							if(service.updateAuthor(temp)!=null) {
+							if(service.updateAuthor(temp)==true) {
 								System.out.println("Author updated");
 							}else {
 								System.out.println("Not updated");

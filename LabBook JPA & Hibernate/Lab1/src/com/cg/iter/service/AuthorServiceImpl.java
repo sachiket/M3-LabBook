@@ -16,7 +16,7 @@ public class AuthorServiceImpl implements AuthorService{
 
 	
 	@Override
-	public Author updateAuthor(Author author) {
+	public boolean updateAuthor(Author author) {
 		return dao.updateAuthor(author);
 	}
 
