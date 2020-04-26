@@ -32,7 +32,9 @@ public class AuthorDAOImpl implements AuthorDAO{
 	@Override
 	public boolean deleteAuthor(Author author) {
 		try {
+			manager.getTransaction().begin();
 			manager.remove(author);
+			manager.getTransaction().commit();
 			return true;
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -42,12 +44,14 @@ public class AuthorDAOImpl implements AuthorDAO{
 
 	@Override
 	public Author updateAuthor(Author author) {
-		try {
+		try {	
+			manager.getTransaction().begin();
 			Author temp = findAuthor(author.getAuthorId());
 			temp.setFirstName(author.getFirstName());
 			temp.setLastName(author.getLastName());
 			temp.setMiddleName(author.getMiddleName());
 			temp.setPhoneNo(author.getPhoneNo());
+			manager.getTransaction().commit();
 			return temp;
 		}catch(Exception e) {
 			e.printStackTrace();
