@@ -1,16 +1,20 @@
 package com.cg.iter.dao;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
+import com.cg.iter.DBUtil.Db;
 import com.cg.iter.bean.Author;
 
 public class AuthorDAOImpl implements AuthorDAO{
-
-	EntityManagerFactory factory = Persistence.createEntityManagerFactory("JPA-PU");
-	EntityManager manager = factory.createEntityManager();
 	
+
+	Db con;
+	EntityManager manager;
+
+	public AuthorDAOImpl() {
+		con = new Db();
+		manager=con.getManager();
+	}
+
 
 	@Override
 	public boolean addAuthor(Author author) {
@@ -36,7 +40,6 @@ public class AuthorDAOImpl implements AuthorDAO{
 		}
 	}
 
-	
 	@Override
 	public Author updateAuthor(Author author) {
 		try {
@@ -51,8 +54,6 @@ public class AuthorDAOImpl implements AuthorDAO{
 			return null;
 		}
 	}
-
-
 	
 	@Override
 	public Author findAuthor(Integer id) {
