@@ -51,6 +51,8 @@ public class AuthorDAOImpl implements AuthorDAO{
 			temp.setLastName(author.getLastName());
 			temp.setMiddleName(author.getMiddleName());
 			temp.setPhoneNo(author.getPhoneNo());
+                        manager.merge(temp);
+
 			manager.getTransaction().commit();
 			return temp;
 		}catch(Exception e) {
