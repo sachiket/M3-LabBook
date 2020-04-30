@@ -1,23 +1,34 @@
 package com.cg.iter.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.iter.entities.Product;
 import com.cg.iter.services.ProductService;
 
-@Controller
-@RequestMapping("/post")
-public class ProductController2 {
-
-	@Autowired private ProductService service;
-	@GetMapping
+@RestController
+public class Controller {
+    
+    @Autowired private ProductService service;
+    
+    @GetMapping("/")
+    public String createSample() {
+        return "Welcome ITER";
+    }
+    
+    @GetMapping("/rest/products")
+    public List<Product> getAll(){
+        return service.getAll();
+    }
+    
+    @GetMapping("/post")
 	public String showForm(Model model) {
 		Product p = new Product();
 		p.setPrice(100D);
